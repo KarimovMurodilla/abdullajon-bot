@@ -5,8 +5,8 @@ import speech_recognition as sr
 class Stt:
     def convert_ogg_to_wav(self, path: str, input_file: str, output_file: str) -> str:
         try:
-            input_f = f"{path}\{input_file}"
-            output_f = f"{path}\{output_file}"
+            input_f = f"{path}/{input_file}"
+            output_f = f"{path}/{output_file}"
             ffmpeg.input(input_f).output(output_f).run()
             print(f"Conversion successful: {output_f}")
             return output_f
