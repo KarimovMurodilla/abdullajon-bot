@@ -8,7 +8,7 @@ services:
       - .env.prod
     restart: on-failure
     ports:
-      - "6378:6378"
+      - "6300:6378"
   db:
     image: postgres:15-alpine
     env_file:
