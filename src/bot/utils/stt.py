@@ -11,7 +11,7 @@ class Stt:
             print(f"Conversion successful: {output_f}")
             return output_f
         except ffmpeg.Error as e:
-            print(f"Error during conversion: {e.stderr.decode('utf8')}")
+            print(f"Error during conversion: {e}")
 
     def recognize_speech_from_file(self, path: str, file_name: str) -> str:
         recognizer = sr.Recognizer()
