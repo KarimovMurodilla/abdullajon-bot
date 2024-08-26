@@ -1,19 +1,17 @@
-import speech_recognition as sr
+import requests
+url = "https://api.muxlisa.uz/v1/api/services/tts/"
 
-# Initialize recognizer class (for recognizing the speech)
-r = sr.Recognizer()
+token = ""
+text = "Nima gap"
+speaker_id = 1
 
-# Capture audio from the microphone
-with sr.Microphone() as source:
-    print("Please speak something...")
-    audio = r.listen(source)
+payload = f"token={token}&text={text}&speaker_id={speaker_id}"
 
-    try:
-        # Using Google Web Speech API to recognize the speech
-        text = r.recognize_google(audio)
-        print(f"You said: {text}")
+headers = {
+    'Content-Type': 'application/x-www-form-urlencoded'
+}
 
-    except sr.UnknownValueError:
-        print("Sorry, I could not understand the audio.")
-    except sr.RequestError:
-        print("Sorry, my speech service is down.")
+response = requests.request("POST", url, headers=headers, data=payload)
+
+with open("response.ogg", "wb") as f:
+    f.write(response.content)

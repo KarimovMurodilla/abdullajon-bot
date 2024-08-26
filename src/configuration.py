@@ -89,6 +89,7 @@ class Configuration:
     ADMIN_LOGIN = getenv('ADMIN_LOGIN')
     ADMIN_PASSWORD = getenv('ADMIN_PASSWORD')
     OPENAI_KEY = getenv('OPENAI_KEY')
+    TTS_TOKEN = getenv("TTS_TOKEN")
     
 
 conf = Configuration()
