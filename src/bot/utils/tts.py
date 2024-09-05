@@ -20,7 +20,7 @@ class Tts:
         # Тело запроса в формате SSML (Speech Synthesis Markup Language)
         ssml = f"""
             <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="uz-UZ">
-                <voice name="uz-UZ-MadinaNeural">
+                <voice name="uz-UZ-SardorNeural">
                     {text}
                 </voice>
             </speak>

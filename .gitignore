@@ -112,3 +112,7 @@ cython_debug/
 *.png
 
 voices/*
+
+*.mp3
+*.ogg
+*.wav
