@@ -49,3 +49,19 @@ async def audio_handle(message: types.Message):
         await message.answer_voice(voice=voice)
     else:
         await message.answer("Uzur sizni tushunmadim")
+
+
+@start_router.message()
+async def text_handle(message: types.Message):
+    tts = Tts()
+    gpt = ChatGPT()
+
+    await message.bot.send_chat_action(message.from_user.id, action='typing')
+
+    file_tts_result_path = conf.VOICE_DIR / f'{message.from_user.id}.ogg'
+    answer = gpt.add_message(message.text)
+    audio_result_path = tts.text_to_speech(text=answer, file_path=file_tts_result_path)
+
+    await message.answer(answer)
+    voice = FSInputFile(audio_result_path)
+    await message.answer_voice(voice=voice)
