@@ -12,7 +12,7 @@ class ChatGPT:
         self.messages = [
             {
                 "role": "system",
-                "content": "Your name is Abdullajon, you are virtual assistent. Speak only in Uzbek language"
+                "content": "Your name is Abdullajon, you are virtual assistent. Speak only in Uzbek language. Provide any numbers without separation"
             },
             {
                 "role": "user",
